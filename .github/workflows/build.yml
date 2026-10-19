@@ -1,0 +1,39 @@
+name: Build Go desktop apps
+on:
+  workflow_dispatch:
+  push:
+    tags: ['v*']
+permissions:
+  contents: read
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache: false
+      - run: go test ./...
+      - run: go build -trimpath -ldflags '-H=windowsgui -s -w' -o dist/ProxPaste.exe .
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ProxPaste-Windows-amd64
+          path: dist/ProxPaste.exe
+  macos:
+    strategy:
+      matrix:
+        os: [macos-15, macos-15-intel]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache: false
+      - run: go test ./...
+      - run: sh scripts/build-macos.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ProxPaste-${{ matrix.os }}
+          path: dist/*.zip
