@@ -1,7 +1,5 @@
-dist/
 build/
 *.test
-*.exe
 .DS_Store
 __pycache__/
 *.pyc
