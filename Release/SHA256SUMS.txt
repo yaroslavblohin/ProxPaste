@@ -1,0 +1,4 @@
+db0ceeeae2f8dae5eb93adfc47ff0508926e5962ccb59ad8fb4be6bc87bcba21  ProxPaste-Windows-amd64.exe
+196ed4c46e944aba667ef9041abb5357949bc5fab1660d00b92715f4443c82bb  ProxPaste-Windows-arm64.exe
+57845e645f91ec9763adf3a1891d9e2c5d5a4b025b8f856dc6698993ebe956b0  ProxPaste-macOS-amd64.zip
+65bd22cb2aeeaeb5e419cac45dd9cb23bbd5ef0f9ac9fcaa356c658be3eaac98  ProxPaste-macOS-arm64.zip
