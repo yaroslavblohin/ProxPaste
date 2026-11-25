@@ -1,4 +1,6 @@
 build/
+/dist/
+/dist2/
 *.test
 .DS_Store
 __pycache__/
